@@ -24,15 +24,15 @@ packages="python3 libzstd make gcc binutils ar objdump libbfd libopcodes libintl
 # Install IPK packages using Entware
 echo "Installing IPK packages..."
 for package in $packages; do
-    if opkg list-installed | grep -q "$package"; then
+    if /opt/bin/opkg list-installed | grep -q "$package"; then
         echo "$package is already installed."
     else
         if [ -f "$PACKAGES_DIR/ipk/${package}_*.ipk" ]; then
             echo "Installing $package from local file."
-            opkg install "$PACKAGES_DIR/ipk/${package}_*.ipk" || exit_on_error "Failed to install $package from local file"
+            /opt/bin/opkg install "$PACKAGES_DIR/ipk/${package}_*.ipk" || exit_on_error "Failed to install $package from local file"
         else
             echo "Installing $package from Entware repository..."
-            opkg install $package || exit_on_error "Failed to install $package"
+            /opt/bin/opkg install $package || exit_on_error "Failed to install $package"
         fi
     fi
 done
