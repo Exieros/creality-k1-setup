@@ -71,6 +71,13 @@ http {
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
+
+        location ~ \.css {
+            add_header  Content-Type    text/css;
+        }
+        location ~ \.js {
+            add_header  Content-Type    application/x-javascript;
+        }
     }
     
     # Serve Mainsail UI on port 4409
