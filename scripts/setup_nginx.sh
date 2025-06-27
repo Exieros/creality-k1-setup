@@ -75,9 +75,10 @@ http {
         location ~ \.css {
             add_header  Content-Type    text/css;
         }
-        location ~ \.js {
-            add_header  Content-Type    application/x-javascript;
+        location ~ \.ts {
+            add_header  Content-Type    text/x.typescript;
         }
+
     }
     
     # Serve Mainsail UI on port 4409
