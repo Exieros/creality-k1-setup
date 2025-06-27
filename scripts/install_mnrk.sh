@@ -375,8 +375,8 @@ EOF
 create_moonraker_service() {
     print_status "Creating Moonraker service script"
     
-    log "Creating start_moonraker.sh script"
-    cat > "${USR_DATA}/start_moonraker.sh" << 'EOF'
+    log "Creating start_mnrk.sh script"
+    cat > "${USR_DATA}/start_mnrk.sh" << 'EOF'
 #!/bin/sh
 
 # Kill any existing Moonraker process
@@ -391,8 +391,8 @@ python3 /usr/data/moonraker/moonraker/moonraker.py -d /usr/data/printer_data > /
 echo "Moonraker started!"
 EOF
 
-    chmod +x "${USR_DATA}/start_moonraker.sh"
-    log "Moonraker service script created at ${USR_DATA}/start_moonraker.sh"
+    chmod +x "${USR_DATA}/start_mnrk.sh"
+    log "Moonraker service script created at ${USR_DATA}/start_mnrk.sh"
 }
 
 # Install UI files - USE GIT CLONE 
@@ -448,7 +448,7 @@ install_ui_files() {
 start_moonraker() {
     print_status "Starting Moonraker"
     
-    "${USR_DATA}/start_moonraker.sh"
+    "${USR_DATA}/start_mnrk.sh"
     
     # Check if Moonraker started
     sleep 2
